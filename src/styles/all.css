@@ -1,3 +1,5 @@
 @import "base/all.css";
+@import "settings/all.css";
 @import "tools/all.css";
 @import "components/all.css";
+@import "pages/all.css";
