@@ -58,6 +58,8 @@ html {
   font-size: 10px;
 }
 
+/* font-sizeに関する変数群 */
+
 :root {
   /* 上揃え & 左揃え */
   /* 上揃え & 左右中央 */
@@ -116,14 +118,72 @@ html {
       transition: all 300ms ease-in;    
     }
 
+.Tab {
+  margin: 0 1.6rem;
+}
+
+.Tab ul {
+    width: 100%;
+    margin-bottom: -1px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+            justify-content: flex-start;
+    border-bottom: 1px solid #666;
+  }
+
+.Tab__Title {
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #666;
+    cursor: pointer;
+  }
+
+.Tab__Title:hover {
+      color: #4fc454;
+    }
+
+.Tab__Title--active {
+      color: #0cb39a;
+      padding-bottom: 1.1rem;
+      font-weight: 400;
+    }
+
+.Tab__UnderLine {
+    display: block;
+    width: 78px;
+    -webkit-transition: -webkit-transform 300ms ease-in;
+    transition: -webkit-transform 300ms ease-in;
+    transition: transform 300ms ease-in;
+    transition: transform 300ms ease-in, -webkit-transform 300ms ease-in;
+    border-bottom: 2px solid #0cb39a;
+    margin-bottom: -1px;
+  }
+
+.Tab__Content {
+    margin: 2rem;
+    font-size: 1.2rem;
+    display: none;
+  }
+
+.Tab__Content--active {
+      display: block;
+    }
+
+.Page1 h1 {
+    margin: 3rem 0;
+    padding-left: 3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
 body,
 html {
   padding: 0;
   margin: 0;
-}
-
-.App {
-  text-align: center;
 }
 
 .App-logo {

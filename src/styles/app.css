@@ -7,8 +7,6 @@ html {
 }
 
 .App {
-  text-align: center;
-
   &-logo {
     height: 80px;
     animation: App-logo-spin infinite 20s linear;

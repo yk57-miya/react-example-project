@@ -1,0 +1,46 @@
+.Tab {
+  margin: 0 1.6rem;
+
+  ul {
+    width: 100%;
+    margin-bottom: -1px;
+    @mixin --layout-center-start;
+    border-bottom: 1px solid #666;
+  }
+
+  &__Title {
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: $size-font-medium;
+    color: #666;
+    cursor: pointer;
+
+    &:hover {
+      color: #4fc454;
+    }
+
+    &--active {
+      color: #0cb39a;
+      padding-bottom: 1.1rem;
+      font-weight: 400;
+    }
+  }
+
+  &__UnderLine {
+    display: block;
+    width: 78px;
+    transition: transform 300ms ease-in;
+    border-bottom: 2px solid #0cb39a;
+    margin-bottom: -1px;
+  }
+
+  &__Content {
+    margin: 2rem;
+    font-size: $size-font-small;
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+}

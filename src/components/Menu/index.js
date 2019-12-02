@@ -8,14 +8,18 @@ import Page3 from '../../pages/page3';
 import Page404 from '../../pages/error';
 
 const MenuBar = ({ children }) => (
-  <div className="Menu">
-    <ul>
-      <li><Link to='/'>top</Link></li>
-      <li><Link to='/page1'>page1</Link></li>
-      <li><Link to='/page2'>page2</Link></li>
-      <li><Link to='/page3'>page3</Link></li>
-    </ul>
-    { children }
+  <div>
+    <div className="Menu">
+      <ul>
+        <li><Link to='/'>top</Link></li>
+        <li><Link to='/page1'>page1</Link></li>
+        <li><Link to='/page2'>page2</Link></li>
+        <li><Link to='/page3'>page3</Link></li>
+      </ul>
+    </div>
+    <div className="Contents">
+      { children }
+    </div>
   </div>
 );
 
@@ -26,7 +30,7 @@ const Menu = ({ location }) => {
       <TransitionGroup>
         <CSSTransition key={ currentkey } classNames='fade' timeout={800}>
           {/*Routeを配置 exactを指定してマッチングを厳密に*/}
-          <div style={{marginLeft: '50px', position: 'absolute', top: '5rem'}}>
+          <div>
             <Switch location={ location }>
               <Route path='/' exact component={ TopPage }/>
               <Route path='/page1' exact component={ Page1 } /> 
