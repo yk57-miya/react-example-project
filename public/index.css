@@ -172,7 +172,18 @@ html {
       display: block;
     }
 
+.Carousel {
+  margin: 0 1.6rem;
+}
+
 .Page1 h1 {
+    margin: 3rem 0;
+    padding-left: 3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
+.Page2 h1 {
     margin: 3rem 0;
     padding-left: 3rem;
     font-weight: bold;

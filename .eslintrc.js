@@ -10,7 +10,7 @@ module.exports = {
     "commonjs": true
   },
   "extends": [
-    "eslint:recommended", 
+    "eslint:recommended",
     "plugin:react/recommended",
   ],
   "plugins": [
