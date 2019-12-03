@@ -7,31 +7,46 @@ class Tab extends Component {
     this.state = {
       currentId: 0,
       styleTab: {
+        width: '0px',
         transform: 'translateX(0px)'
       }
     };
   }
 
-  handleTabClick = (e, id) => {
-    e.preventDefault();
-    this.width = e.target.clientWidth;    
-    this.setState({ currentId : id});
-    this.setState({ styleTab: {
-      transform: `translateX(${this.width*id}px)`
-    } });
-  };
+  componentDidMount() {
+    window.addEventListener('load', () => {
+      this.width = this.tabRef.clientWidth;
+      this.setState({ styleTab: {
+        width: this.width,
+        transform: 'translateX(0px)'
+      }});
+    });
+  }
 
-  // componentDidmount() {
-  //   window.addEventListener('load', () => {
-  //   });
-  // }
-
-  shouldComponentUpdate(nextProps, nextStatus) {
-    if (this.props.tabDate !== nextProps.tabDate ||this.state.styleTab !== nextStatus.styleTab) {
+  componentDidUpdate(nextProps, nextState) {
+    if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
       return true;
     }
     return false;
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // console.log(this.state.styleTab, nextState.styleTab);
+    if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
+      return true;
+    }
+    return false;
+  }
+
+  handleTabClick = (e, id) => {
+    e.preventDefault();
+    this.width = e.target.clientWidth;
+    this.setState({ currentId : id });
+    this.setState({ styleTab: {
+      width: this.width,
+      transform: `translateX(${this.width*id}px)`
+    } });
+  };
 
   render() {
     return (
@@ -41,7 +56,7 @@ class Tab extends Component {
             const tabTitle = classNames('Tab__Title', {
               'Tab__Title--active' : this.state.currentId === i
             });
-            return <li key={ i } className={ tabTitle } onClick={ e => this.handleTabClick(e, i) }>{ item.name }</li>;
+            return <li ref={ node => this.tabRef = node } key={ i } className={ tabTitle } onClick={ e => this.handleTabClick(e, i) }>{ item.name }</li>;
           })
         }</ul>
         <div className="Tab__UnderLine" style={ this.state.styleTab }></div>

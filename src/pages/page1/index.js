@@ -4,7 +4,7 @@ import Tab from '../../components/Tab';
 export default class Page1 extends Component {
   constructor (props) {
     super(props);
-    this.str = 'Page1';
+    this.str = 'Tab Component';
     this.tabList1 = [
       {
         name: 'Tab 1',
