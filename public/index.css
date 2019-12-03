@@ -131,7 +131,7 @@ html {
             align-items: center;
     -webkit-box-pack: start;
             justify-content: flex-start;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #e8e8e8;
   }
 
 .Tab__Title {
@@ -154,7 +154,6 @@ html {
 
 .Tab__UnderLine {
     display: block;
-    width: 78px;
     -webkit-transition: -webkit-transform 300ms ease-in;
     transition: -webkit-transform 300ms ease-in;
     transition: transform 300ms ease-in;
