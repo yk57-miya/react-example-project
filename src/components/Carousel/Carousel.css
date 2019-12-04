@@ -1,3 +1,127 @@
 .Carousel {
-  margin: 0 1.6rem;
+  position: relative;
+  width: 100%;
+
+
+  &__Inner {
+    width: 640px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  &__List {
+    @mixin --layout-start-center;
+    transition: transform 500ms ease-in-out;
+  }
+
+  &__Item {
+    position: relative;
+    width: 640px;
+
+    span {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      color: #fff;
+      font-size: $size-font-small;
+      font-weight: bold;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__Custom {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    bottom: 0;
+    left: 10%;
+  }
+
+  &__Arrow {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #0cb39a;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 12px;
+      width: 5px;
+      height: 5px;
+      border-top: 1px solid #fff;
+      border-right: 1px solid #fff;
+    }
+
+    &--prev {
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        left: 13px;
+        transform: rotate(-135deg);
+      }
+    }
+
+    &--next {
+      &::before {
+        right: 0;
+      }
+
+      &::after {
+        right: 13px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__Pager {
+    width: 100%;
+    @mixin --layout-start-center;
+  }
+
+  &__Page {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    cursor: pointer;
+    margin-top: 0.8rem;
+
+    &:not(:last-child) {
+      margin-right: 2.4rem;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+
+    &--active {
+      &::before {
+        background-color: #0cb39a;
+      }
+    }
+  }
 }

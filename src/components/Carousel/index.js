@@ -1,36 +1,48 @@
 import React, { Component } from 'react';
-// import classNames from 'classnames';
-import Image1 from '../../img/cat_1.jpg';
-import Image2 from '../../img/cat_2.jpg';
-import Image3 from '../../img/cat_3.jpg';
-import Image4 from '../../img/cat_4.jpg';
+import constants from '../../constants';
+import classNames from 'classnames';
 
 class Carousel extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      image: {
-        img_1: Image1,
-        img_2: Image2,
-        img_3: Image3,
-        img_4: Image4,
+      currentId: 0,
+      style: {
+        width: '0px',
+        transform: 'translateX(0px)'
       }
     };
   }
 
   componentDidMount() {
     window.addEventListener('load', () => {
+      const itemWidth = constants.carousel.desktop.unitWidth;
+      this.CarouselWidth = itemWidth * this.props.carouselDate.length;
+      this.setState({ style: {
+        width: `${this.CarouselWidth}px`,
+        transform: 'translateX(0px)'
+      }});
     });
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  componentDidUpdate(nextProps, nextState) {
     if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
-      return true;
+      this.setState({ style: {
+        width: `${this.CarouselWidth}px`
+      }});
     }
     return false;
   }
 
-  handleTabClick = (e, id) => {
+  // TODO:一旦コメントアウト
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
+  handleItemClick = (e, id) => {
     e.preventDefault();
     this.width = e.target.clientWidth;
     this.setState({ currentId : id });
@@ -40,20 +52,65 @@ class Carousel extends Component {
     } });
   };
 
+  handlePrevArrowClick = (e, current) => {
+    e.preventDefault();
+    const itemWidth = this.itemRef.clientWidth;
+    if (current === 0) {
+      this.current = this.props.carouselDate.length - 1;
+    } else {
+      this.current = current - 1;
+    }
+    this.setState({ currentId: this.current });
+    this.setState({ style: {
+      width: `${this.CarouselWidth}px`,
+      transform: `translateX(-${itemWidth * this.current}px)`
+    }});
+  };
+
+  handleNextArrowClick = (e, current) => {
+    e.preventDefault();
+    const itemWidth = this.itemRef.clientWidth;
+    if (current === this.props.carouselDate.length - 1) {
+      this.current = 0;
+    } else {
+      this.current = current + 1;
+    }
+    this.setState({
+      currentId: this.current,
+      style: {
+        width: `${this.CarouselWidth}px`,
+        transform: `translateX(-${itemWidth * this.current}px)`
+      }
+    });
+  };
+
   render() {
     return (
       <div className="Carousel">
-        <ul className="Carousel__List">{
+        <div ref={ node => this.carouselRef = node } className="Carousel__Inner">
+          <ul className="Carousel__List" style={ this.state.style }>{
+            this.props.carouselDate.map((item, i) => {
+              return (
+                <li ref={ node => this.itemRef = node } key={ i } className="Carousel__Item">
+                  <span>{ item.title }</span>
+                  <img src={ `./img/${item.image_url}` } alt={ item.title } />
+                </li>
+              );
+            })
+          }</ul>
+        </div>
+        <div className="Carousel__Custom">
+          <div className="Carousel__Arrow Carousel__Arrow--prev" onClick={ e => this.handlePrevArrowClick(e, this.state.currentId) }></div>
+          <div className="Carousel__Arrow Carousel__Arrow--next" onClick={ e => this.handleNextArrowClick(e, this.state.currentId) }></div>
+        </div>
+        <div className="Carousel__Pager">{
           this.props.carouselDate.map((item, i) => {
-            console.log(this.state.image);
-            return (
-              <li key={ i } className="Carousel__Item" onClick={ e => this.handleTabClick(e, i) }>
-                { item.title }
-                <img src="" alt="" />
-              </li>
-            )
+            const Pager = classNames('Carousel__Page', {
+              'Carousel__Page--active' : this.state.currentId === i
+            });
+            return <div key={ i } className={ Pager }></div>;
           })
-        }</ul>
+        }</div>
       </div>
     );
   }
