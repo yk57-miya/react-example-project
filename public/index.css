@@ -177,7 +177,6 @@ html {
 }
 
 .Carousel__Inner {
-    width: 640px;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -193,11 +192,12 @@ html {
     transition: -webkit-transform 500ms ease;
     transition: transform 500ms ease;
     transition: transform 500ms ease, -webkit-transform 500ms ease;
+    height: 100%;
   }
 
 .Carousel__Item {
     position: relative;
-    width: 640px;
+    height: 100%;
   }
 
 .Carousel__Item span {
@@ -207,10 +207,12 @@ html {
       color: #fff;
       font-size: 1.2rem;
       font-weight: bold;
+      text-shadow: 1px 1px 1px #000;
     }
 
 .Carousel__Item img {
       width: 100%;
+      height: 100%;
     }
 
 .Carousel__Custom {
@@ -278,6 +280,7 @@ html {
             align-items: flex-start;
     -webkit-box-pack: center;
             justify-content: center;
+    margin: 0.8rem 0;
   }
 
 .Carousel__Page {
@@ -285,7 +288,6 @@ html {
     width: 6px;
     height: 6px;
     cursor: pointer;
-    margin-top: 0.8rem;
   }
 
 .Carousel__Page:not(:last-child) {
@@ -308,18 +310,29 @@ html {
         background-color: #0cb39a;
       }
 
-.Page1 h1 {
+.Page1__Title {
     margin: 3rem 0;
     padding-left: 3rem;
     font-weight: bold;
     font-size: 1.8rem;
   }
 
-.Page2 h1 {
+.Page2__Title {
     margin: 3rem 0;
     padding-left: 3rem;
     font-weight: bold;
     font-size: 1.8rem;
+  }
+
+.Page2__SubTitle {
+    padding: 2rem 0 2rem 1rem;
+    color: #fff;
+    background-color: #9ae39e;
+    font-size: 1.6rem;
+  }
+
+.Page2__Content {
+    margin: 3.6rem 0;
   }
 
 body,

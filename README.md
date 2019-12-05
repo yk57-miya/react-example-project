@@ -12,6 +12,7 @@ react-example-project/
   node_modules/
   package.json
   public/
+    img/
     index.html
     index.css
     favicon.ico
@@ -20,6 +21,7 @@ react-example-project/
       App.js
       App.test.js
     components/
+    constants/
     pages/
     style/
     index.js

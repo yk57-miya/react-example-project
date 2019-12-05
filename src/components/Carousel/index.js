@@ -6,19 +6,23 @@ class Carousel extends Component {
     super(props);
     this.state = {
       currentId: 0,
-      style: {
+      styleItem: {
         width: '0px',
         transform: 'translateX(0px)'
+      },
+      styleCarousel: {
+        width: '0px',
+        height: '0px'
       }
     };
   }
 
   getStyle(current) {
-    this.CarouselWidth = this.itemWidth * this.props.carouselDate.length;
+    this.carouselWidth = this.itemWidth * this.props.carouselDate.length;
     this.setState({
       currentId: current,
-      style: {
-        width: `${this.CarouselWidth}px`,
+      styleItem: {
+        width: `${this.carouselWidth}px`,
         transform: `translateX(-${this.itemWidth * current}px)`
       }
     });
@@ -27,23 +31,30 @@ class Carousel extends Component {
   componentDidMount() {
     window.addEventListener('load', () => {
       this.itemWidth = this.props.settings.width;
-      this.CarouselWidth = this.itemWidth * this.props.carouselDate.length;
-      this.setState({ style: {
-        width: `${this.CarouselWidth}px`,
-        transform: 'translateX(0px)'
-      }});
+      this.itemHeight = this.props.settings.height;
+      this.carouselWidth = this.itemWidth * this.props.carouselDate.length;
+      this.setState({
+        styleItem: {
+          width: `${this.carouselWidth}px`,
+          transform: 'translateX(0px)'
+        },
+        styleCarousel: {
+          width: `${this.itemWidth}px`,
+          height: `${this.itemHeight}px`
+        }
+      });
     });
   }
 
   componentDidUpdate(nextProps, nextState) {
-    if (nextProps.carouselDate !== this.props.carouselDate || nextState.style !== this.state.style) {
+    if (nextProps.carouselDate !== this.props.carouselDate || nextState !== this.state ) {
       return true;
     }
     return false;
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.carouselDate !== this.props.carouselDate || nextState.style !== this.state.style) {
+    if (nextProps.carouselDate !== this.props.carouselDate || nextState.styleItem !== this.state.styleItem) {
       return true;
     }
     return false;
@@ -84,8 +95,8 @@ class Carousel extends Component {
   render() {
     return (
       <div className="Carousel">
-        <div ref={ node => this.carouselRef = node } className="Carousel__Inner">
-          <ul className="Carousel__List" style={ this.state.style }>{
+        <div ref={ node => this.carouselRef = node } className="Carousel__Inner" style={ this.state.styleCarousel }>
+          <ul className="Carousel__List" style={ this.state.styleItem }>{
             this.props.carouselDate.map((item, i) => {
               return (
                 <li ref={ node => this.itemRef = node } key={ i } className="Carousel__Item">

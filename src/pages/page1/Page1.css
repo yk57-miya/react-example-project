@@ -1,5 +1,5 @@
 .Page1 {
-  h1 {
+  &__Title {
     margin: 3rem 0;
     padding-left: 3rem;
     font-weight: bold;
