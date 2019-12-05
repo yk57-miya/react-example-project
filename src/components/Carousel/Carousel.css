@@ -11,7 +11,7 @@
 
   &__List {
     @mixin --layout-start-center;
-    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease;
   }
 
   &__Item {
@@ -44,6 +44,7 @@
     width: 100%;
     position: absolute;
     top: 50%;
+    cursor: pointer;
 
     &::before {
       content: "";

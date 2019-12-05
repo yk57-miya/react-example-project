@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import constants from '../../constants';
 import classNames from 'classnames';
 
 class Carousel extends Component {
@@ -14,10 +13,21 @@ class Carousel extends Component {
     };
   }
 
+  getStyle(current) {
+    this.CarouselWidth = this.itemWidth * this.props.carouselDate.length;
+    this.setState({
+      currentId: current,
+      style: {
+        width: `${this.CarouselWidth}px`,
+        transform: `translateX(-${this.itemWidth * current}px)`
+      }
+    });
+  }
+
   componentDidMount() {
     window.addEventListener('load', () => {
-      const itemWidth = constants.carousel.desktop.unitWidth;
-      this.CarouselWidth = itemWidth * this.props.carouselDate.length;
+      this.itemWidth = this.props.settings.width;
+      this.CarouselWidth = this.itemWidth * this.props.carouselDate.length;
       this.setState({ style: {
         width: `${this.CarouselWidth}px`,
         transform: 'translateX(0px)'
@@ -26,62 +36,49 @@ class Carousel extends Component {
   }
 
   componentDidUpdate(nextProps, nextState) {
-    if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
-      this.setState({ style: {
-        width: `${this.CarouselWidth}px`
-      }});
+    if (nextProps.carouselDate !== this.props.carouselDate || nextState.style !== this.state.style) {
+      return true;
     }
     return false;
   }
 
-  // TODO:一旦コメントアウト
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.carouselDate !== this.props.carouselDate || nextState.style !== this.state.style) {
+      return true;
+    }
+    return false;
+  }
 
   handleItemClick = (e, id) => {
     e.preventDefault();
     this.width = e.target.clientWidth;
-    this.setState({ currentId : id });
-    this.setState({ styleTab: {
-      width: this.width,
-      transform: `translateX(${this.width*id}px)`
-    } });
+    this.getStyle(id);
   };
 
   handlePrevArrowClick = (e, current) => {
     e.preventDefault();
-    const itemWidth = this.itemRef.clientWidth;
     if (current === 0) {
       this.current = this.props.carouselDate.length - 1;
     } else {
       this.current = current - 1;
     }
-    this.setState({ currentId: this.current });
-    this.setState({ style: {
-      width: `${this.CarouselWidth}px`,
-      transform: `translateX(-${itemWidth * this.current}px)`
-    }});
+    this.getStyle(this.current);
   };
 
   handleNextArrowClick = (e, current) => {
     e.preventDefault();
-    const itemWidth = this.itemRef.clientWidth;
     if (current === this.props.carouselDate.length - 1) {
       this.current = 0;
     } else {
       this.current = current + 1;
     }
-    this.setState({
-      currentId: this.current,
-      style: {
-        width: `${this.CarouselWidth}px`,
-        transform: `translateX(-${itemWidth * this.current}px)`
-      }
-    });
+    this.getStyle(this.current);
+  };
+
+  handleButtonClick = (e, id) => {
+    e.preventDefault();
+    this.current = id;
+    this.getStyle(id);
   };
 
   render() {
@@ -108,7 +105,7 @@ class Carousel extends Component {
             const Pager = classNames('Carousel__Page', {
               'Carousel__Page--active' : this.state.currentId === i
             });
-            return <div key={ i } className={ Pager }></div>;
+            return <div key={ i } className={ Pager } onClick={ e => this.handleButtonClick(e, i) }></div>;
           })
         }</div>
       </div>

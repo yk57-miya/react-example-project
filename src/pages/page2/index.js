@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Carousel from '../../components/Carousel';
+import constants from '../../constants';
 
 export default class Page2 extends Component {
   constructor (props) {
@@ -13,12 +14,15 @@ export default class Page2 extends Component {
       };
       this.carouselList.push(catList);
     }
+    this.settings = {
+      width: constants.carousel.desktop.unitWidth,
+    };
   }
   render () {
     return (
       <div className="Page2">
         <h1>{ this.str }</h1>
-        <Carousel carouselDate={ this.carouselList } />
+        <Carousel carouselDate={ this.carouselList } settings={ this.settings }/>
       </div>
     );
   }
