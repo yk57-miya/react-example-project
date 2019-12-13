@@ -61,7 +61,6 @@ class Carousel extends Component {
   }
 
   handleItemClick = (e, id) => {
-    console.log(e);
     e.preventDefault();
     this.getStyle(id);
   };
