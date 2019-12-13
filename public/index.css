@@ -215,16 +215,9 @@ html {
       height: 100%;
     }
 
-.Carousel__Custom {
-    position: absolute;
-    top: 0;
-    right: 10%;
-    bottom: 0;
-    left: 10%;
-  }
-
 .Carousel__Arrow {
-    width: 100%;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 50%;
     cursor: pointer;
@@ -252,6 +245,10 @@ html {
       border-right: 1px solid #fff;
     }
 
+.Carousel__Arrow--prev {
+      left: 10%;
+    }
+
 .Carousel__Arrow--prev::before {
         left: 0;
       }
@@ -261,6 +258,10 @@ html {
         -webkit-transform: rotate(-135deg);
                 transform: rotate(-135deg);
       }
+
+.Carousel__Arrow--next {
+      right: 10%;
+    }
 
 .Carousel__Arrow--next::before {
         right: 0;

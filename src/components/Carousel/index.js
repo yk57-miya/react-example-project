@@ -54,15 +54,15 @@ class Carousel extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.carouselDate !== this.props.carouselDate || nextState.styleItem !== this.state.styleItem) {
+    if (nextProps.carouselDate !== this.props.carouselDate || nextState !== this.state) {
       return true;
     }
     return false;
   }
 
   handleItemClick = (e, id) => {
+    console.log(e);
     e.preventDefault();
-    this.width = e.target.clientWidth;
     this.getStyle(id);
   };
 
@@ -99,7 +99,7 @@ class Carousel extends Component {
           <ul className="Carousel__List" style={ this.state.styleItem }>{
             this.props.carouselDate.map((item, i) => {
               return (
-                <li ref={ node => this.itemRef = node } key={ i } className="Carousel__Item">
+                <li ref={ node => this.itemRef = node } key={ i } className="Carousel__Item" onClick={ e => this.handleItemClick(e, i) }>
                   <span>{ item.title }</span>
                   <img src={ `./img/${item.image_url}` } alt={ item.title } />
                 </li>
@@ -107,10 +107,8 @@ class Carousel extends Component {
             })
           }</ul>
         </div>
-        <div className="Carousel__Custom">
-          <div className="Carousel__Arrow Carousel__Arrow--prev" onClick={ e => this.handlePrevArrowClick(e, this.state.currentId) }></div>
-          <div className="Carousel__Arrow Carousel__Arrow--next" onClick={ e => this.handleNextArrowClick(e, this.state.currentId) }></div>
-        </div>
+        <div className="Carousel__Arrow Carousel__Arrow--prev" onClick={ e => this.handlePrevArrowClick(e, this.state.currentId) }></div>
+        <div className="Carousel__Arrow Carousel__Arrow--next" onClick={ e => this.handleNextArrowClick(e, this.state.currentId) }></div>
         <div className="Carousel__Pager">{
           this.props.carouselDate.map((item, i) => {
             const Pager = classNames('Carousel__Page', {

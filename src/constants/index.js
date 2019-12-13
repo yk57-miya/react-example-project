@@ -13,11 +13,11 @@ export default {
   landscapeCarousel: {
     desktop: {
       unitWidth: 480,
-      unitHeight: 240
+      unitHeight: 200
     },
     mobile: {
       unitWidth: 320,
-      unitHeight: 160
+      unitHeight: 100
     },
   },
 };

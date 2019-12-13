@@ -33,16 +33,9 @@
     }
   }
 
-  &__Custom {
-    position: absolute;
-    top: 0;
-    right: 10%;
-    bottom: 0;
-    left: 10%;
-  }
-
   &__Arrow {
-    width: 100%;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 50%;
     cursor: pointer;
@@ -70,6 +63,8 @@
     }
 
     &--prev {
+      left: 10%;
+
       &::before {
         left: 0;
       }
@@ -81,6 +76,8 @@
     }
 
     &--next {
+      right: 10%;
+
       &::before {
         right: 0;
       }
