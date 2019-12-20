@@ -60,6 +60,14 @@ html {
 
 /* font-sizeに関する変数群 */
 
+/* 共通color */
+
+/* Text colorに関する変数群 */
+
+/* Bg colorに関する変数群 */
+
+/* border colorに関する変数群 */
+
 :root {
   /* 上揃え & 左揃え */
   /* 上揃え & 左右中央 */
@@ -311,6 +319,54 @@ html {
         background-color: #0cb39a;
       }
 
+.Calculator__Row {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+            justify-content: flex-start;
+  }
+
+.Calculator__Row:not(last-child) {
+    margin-bottom: 1rem;
+  }
+
+.Calculator__Button {
+    width: 80px;
+    height: 40px;
+  }
+
+.Calculator__Button:not(last-child) {
+    margin-right: 1rem;
+  }
+
+.CalculatorButton {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.CalculatorButton__Item {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    background-color: #f1f3f4;
+    border: 1px solid #f1f3f4;
+    border-radius: 4px;
+  }
+
+.CalculatorButton__Item--dark {
+      background-color: #dfe1e5;
+    }
+
+.CalculatorButton__Item--main {
+      color: #fff;
+      background-color: #0cb39a;
+    }
+
 .Page1__Title {
     margin: 3rem 0;
     padding-left: 3rem;
@@ -333,6 +389,24 @@ html {
   }
 
 .Page2__Content {
+    margin: 3.6rem 0;
+  }
+
+.Page3__Title {
+    margin: 3rem 0;
+    padding-left: 3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
+/* &__SubTitle {
+    padding: 2rem 0 2rem 1rem;
+    color: #fff;
+    background-color: #9ae39e;
+    font-size: $size-font-large;
+  } */
+
+.Page3__Content {
     margin: 3.6rem 0;
   }
 

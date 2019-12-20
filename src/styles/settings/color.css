@@ -1,0 +1,16 @@
+/* 共通color */
+$color-primary: #0cb39a;
+
+/* Text colorに関する変数群 */
+$color-text-primary: #333;
+$color-text-secondary: #999;
+$color-text-dark-bg: #fff;
+
+/* Bg colorに関する変数群 */
+$color-bg-primary: #fff;
+$color-bg-secondary: #f0f0f0;
+$color-bg-light-gray: #f1f3f4;
+
+/* border colorに関する変数群 */
+$color-border-light-gray: #f1f3f4;
+$color-border-dark-gray: #dfe1e5;

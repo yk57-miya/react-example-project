@@ -1,0 +1,18 @@
+.Calculator {
+  &__Row {
+    @mixin --layout-start-start;
+  }
+
+  &__Row:not(last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__Button {
+    width: 80px;
+    height: 40px;
+  }
+
+  &__Button:not(last-child) {
+    margin-right: 1rem;
+  }
+}
