@@ -96,6 +96,30 @@ html {
   天地中央 & 左右いっぱいまで広がる */
 }
 
+/* fade animation */
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  -webkit-transition: opacity 800ms ease-out;
+  transition: opacity 800ms ease-out;
+  opacity: 1;
+}
+
+.fade-exit {
+  -webkit-transition: opacity 800ms ease-in;
+  transition: opacity 800ms ease-in;
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+/* calculator */
+
 .Menu {
   width: 100%;
   text-align: center;
@@ -319,6 +343,10 @@ html {
         background-color: #0cb39a;
       }
 
+.Calculator {
+  width: 100%;
+}
+
 .Calculator__Row {
     display: -webkit-box;
     display: flex;
@@ -330,6 +358,19 @@ html {
 
 .Calculator__Row:not(last-child) {
     margin-bottom: 1rem;
+  }
+
+.Calculator__Result {
+    width: calc(80px * 4 + 1rem * 3);
+  }
+
+.Calculator__ResultInner {
+    width: -webkit-fill-available;
+    display: inline-block;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 1px solid #f1f3f4;
+    text-align: right;
   }
 
 .Calculator__Button {
@@ -408,6 +449,7 @@ html {
 
 .Page3__Content {
     margin: 3.6rem 0;
+    padding-left: 3rem;
   }
 
 body,

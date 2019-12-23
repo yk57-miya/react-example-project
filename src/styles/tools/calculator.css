@@ -1,0 +1,5 @@
+/* calculator */
+$calculator-tile-width: 80px;
+$calculator-tile-space: 1rem;
+$calculator-tile-height: 40px;
+$calculator-tile-result: calc($calculator-tile-width * 4 + $calculator-tile-space * 3);

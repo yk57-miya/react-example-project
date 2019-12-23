@@ -13,22 +13,23 @@ class CalculatorButton extends Component {
     });
   }
 
-  componentDidUpdate(nextProps, nextState) {
-    if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
-      return true;
-    }
-    return false;
-  }
+  // componentDidUpdate(nextProps, nextState) {
+  //   if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
-      return true;
-    }
-    return false;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
-  handleButtonClick() {
-    this.props.handleButtonClick(this.props.value);
+  handleButtonClick = e => {
+    e.preventDefault();
+    this.props.handleButtonClick(e,this.props.value);
   }
 
   getStyleColor(style) {
@@ -42,7 +43,7 @@ class CalculatorButton extends Component {
     const styleColor = this.props.styleColor;
     return (
       <div className="CalculatorButton">
-        <input className={`CalculatorButton__Item ${this.getStyleColor(styleColor)}`} type="button" value={ this.props.value } onClick={ this.handleButtonClick.bind(this) } disable="disable"/>
+        <input className={`CalculatorButton__Item ${this.getStyleColor(styleColor)}`} type="button" value={ this.props.value } onClick={ this.handleButtonClick } disable="disable"/>
       </div>
     );
   }

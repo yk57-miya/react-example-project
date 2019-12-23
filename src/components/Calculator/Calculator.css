@@ -1,10 +1,25 @@
 .Calculator {
+  width: 100%;
+
   &__Row {
     @mixin --layout-start-start;
   }
 
   &__Row:not(last-child) {
     margin-bottom: 1rem;
+  }
+
+  &__Result {
+    width: $calculator-tile-result;
+  }
+
+  &__ResultInner {
+    width: -webkit-fill-available;
+    display: inline-block;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 1px solid $color-border-light-gray;
+    text-align: right;
   }
 
   &__Button {
