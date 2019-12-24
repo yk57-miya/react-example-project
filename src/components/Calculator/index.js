@@ -7,9 +7,11 @@ class Calculator extends Component {
     super(props);
     this.state = {
       total: '0',
-      currentValue: ''
     };
     this.formula = [];
+    this.str = [];
+    this.currentValue = '';
+    this.flag = 0;
   }
 
   componentDidMount() {
@@ -20,8 +22,16 @@ class Calculator extends Component {
   allClear() {
     this.setState({
       total: '0',
-      currentValue: ''
     });
+    this.formula = [];
+    this.str = [];
+    this.currentValue = '';
+  }
+
+  // 1つのブロックを演算子のタイミングで削除
+  blockClear() {
+    this.str = [];
+    this.currentValue = '';
   }
 
   inputValue(value) {
@@ -34,17 +44,36 @@ class Calculator extends Component {
         total: `${this.state.total}${value}`,
       });
     }
+    this.str.push(value);
+    this.currentValue = this.str.join('');
   }
 
   calculation(value) {
-    // console.log(value);
     this.setState({
       total: `${this.state.total}\t${value}\t`,
-      currentValue: `${this.state.total}`
     });
     this.formula.push(value);
+  }
+
+  calculationResult() {
+    // const aaa = this.formula.join('');
     // console.log(this.formula);
-    // console.log(this.state.currentValue);
+    // const bbb = Function(aaa)();
+    // console.log(888,aaa);
+
+
+    // this.formula.forEach(item => {
+    //   if (!isNaN(item)) {
+    //     console.log('数字');
+    //   } else {
+    //     console.log('計算記号');
+    //   }
+    // });
+
+
+    // this.setState({
+    //   total:,
+    // });
   }
 
   // componentDidUpdate(nextProps, nextState) {
@@ -64,9 +93,10 @@ class Calculator extends Component {
   handleButtonClick(e, value) {
     switch (value) {
     case '+':
-      this.formula.push(this.state.total);
+      this.formula.push(this.currentValue);
+      this.blockClear();
+      // console.log('formula',this.formula);
       this.calculation(value);
-      // console.log('たし');
       break;
     case '-':
       // console.log('ひき');
@@ -78,7 +108,8 @@ class Calculator extends Component {
       // console.log('わる');
       break;
     case '=':
-      // console.log('結果');
+      this.formula.push(this.currentValue);
+      this.calculationResult();
       break;
     case 'AC':
       this.allClear();
