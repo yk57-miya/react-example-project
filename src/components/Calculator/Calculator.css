@@ -11,6 +11,7 @@
 
   &__Result {
     width: $calculator-tile-result;
+    max-width: 100%;
   }
 
   &__ResultInner {

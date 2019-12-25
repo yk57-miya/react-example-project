@@ -362,6 +362,7 @@ html {
 
 .Calculator__Result {
     width: calc(80px * 4 + 1rem * 3);
+    max-width: 100%;
   }
 
 .Calculator__ResultInner {
@@ -449,7 +450,7 @@ html {
 
 .Page3__Content {
     margin: 3.6rem 0;
-    padding-left: 3rem;
+    padding: 0 3rem;
   }
 
 body,

@@ -56,11 +56,10 @@ class Calculator extends Component {
   }
 
   calculationResult() {
-    // const aaa = this.formula.join('');
-    // console.log(this.formula);
-    // const bbb = Function(aaa)();
-    // console.log(888,aaa);
-
+    const inputValueResult = this.formula.join('');
+    console.log(this.formula);
+    const result = eval(inputValueResult);
+    console.log(888,result, inputValueResult);
 
     // this.formula.forEach(item => {
     //   if (!isNaN(item)) {
@@ -70,10 +69,9 @@ class Calculator extends Component {
     //   }
     // });
 
-
-    // this.setState({
-    //   total:,
-    // });
+    this.setState({
+      total: result,
+    });
   }
 
   // componentDidUpdate(nextProps, nextState) {
@@ -90,22 +88,25 @@ class Calculator extends Component {
   //   return false;
   // }
 
+  calculate(value) {
+    this.formula.push(this.currentValue);
+    this.blockClear();
+    this.calculation(value);
+  }
+
   handleButtonClick(e, value) {
     switch (value) {
     case '+':
-      this.formula.push(this.currentValue);
-      this.blockClear();
-      // console.log('formula',this.formula);
-      this.calculation(value);
+      this.calculate(value);
       break;
     case '-':
-      // console.log('ひき');
+      this.calculate(value);
       break;
     case 'x':
-      // console.log('かけ');
+      this.calculate(value);
       break;
     case '÷':
-      // console.log('わる');
+      this.calculate(value);
       break;
     case '=':
       this.formula.push(this.currentValue);
