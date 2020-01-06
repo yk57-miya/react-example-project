@@ -311,6 +311,47 @@ html {
         background-color: #0cb39a;
       }
 
+.Button__List {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+.Button__Item a {
+    display: block;
+    color: #0cb39a;
+    width: 200px;
+    height: 200px;
+    border: double 4px #0cb39a;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+    transition: transform 0.6s, -webkit-transform 0.6s;
+    line-height: 200px;
+    font-size: 1.2rem;
+  }
+
+.Button__Item a:hover {
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+
+.Root__Title {
+    margin: 3rem 0;
+    padding-left: 3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
 .Page1__Title {
     margin: 3rem 0;
     padding-left: 3rem;
