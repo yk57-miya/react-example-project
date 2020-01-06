@@ -109,8 +109,6 @@ html {
 }
 
 .fade-exit {
-  -webkit-transition: opacity 800ms ease-in;
-  transition: opacity 800ms ease-in;
   opacity: 1;
 }
 

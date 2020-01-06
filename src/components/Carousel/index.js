@@ -29,21 +29,21 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('load', () => {
-      this.itemWidth = this.props.settings.width;
-      this.itemHeight = this.props.settings.height;
-      this.carouselWidth = this.itemWidth * this.props.carouselDate.length;
-      this.setState({
-        styleItem: {
-          width: `${this.carouselWidth}px`,
-          transform: 'translateX(0px)'
-        },
-        styleCarousel: {
-          width: `${this.itemWidth}px`,
-          height: `${this.itemHeight}px`
-        }
-      });
+    // window.addEventListener('load', () => {
+    this.itemWidth = this.props.settings.width;
+    this.itemHeight = this.props.settings.height;
+    this.carouselWidth = this.itemWidth * this.props.carouselDate.length;
+    this.setState({
+      styleItem: {
+        width: `${this.carouselWidth}px`,
+        transform: 'translateX(0px)'
+      },
+      styleCarousel: {
+        width: `${this.itemWidth}px`,
+        height: `${this.itemHeight}px`
+      }
     });
+    // });
   }
 
   componentDidUpdate(nextProps, nextState) {

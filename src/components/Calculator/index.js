@@ -11,7 +11,7 @@ class Calculator extends Component {
     this.formula = [];
     this.str = [];
     this.currentValue = '';
-    this.flag = 0;
+    this.flag = false;
   }
 
   componentDidMount() {
@@ -35,6 +35,7 @@ class Calculator extends Component {
   }
 
   inputValue(value) {
+    this.flag = false;
     if (this.state.total === '0') {
       this.setState({
         total: `${value}`
@@ -56,10 +57,20 @@ class Calculator extends Component {
   }
 
   calculationResult() {
+    if (this.state.total === '0') {
+      return;
+    }
+    this.formulaNew = [];
+    for (let i = 0; i < this.formula.length; i++) {
+      if (this.formula[i] === 'x') {
+        this.formula[i] = '*';
+      }
+      if (this.formula[i] === '÷') {
+        this.formula[i] = '/';
+      }
+    }
     const inputValueResult = this.formula.join('');
-    console.log(this.formula);
     const result = eval(inputValueResult);
-    console.log(888,result, inputValueResult);
 
     // this.formula.forEach(item => {
     //   if (!isNaN(item)) {
@@ -68,7 +79,6 @@ class Calculator extends Component {
     //     console.log('計算記号');
     //   }
     // });
-
     this.setState({
       total: result,
     });
@@ -89,9 +99,13 @@ class Calculator extends Component {
   // }
 
   calculate(value) {
+    if (this.flag) {
+      return;
+    }
     this.formula.push(this.currentValue);
     this.blockClear();
     this.calculation(value);
+    this.flag = true;
   }
 
   handleButtonClick(e, value) {
@@ -120,8 +134,6 @@ class Calculator extends Component {
       break;
     }
   }
-
-
 
   render() {
     return (
