@@ -10,6 +10,7 @@
 
 # production
 /build
+app.wbn
 
 # misc
 .DS_Store

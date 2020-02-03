@@ -407,17 +407,6 @@ html {
       background-color: #0cb39a;
     }
 
-.Button__List {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-            justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
-  }
-
 .Button__Item a {
     display: block;
     color: #0cb39a;
@@ -446,6 +435,17 @@ html {
     padding-left: 3rem;
     font-weight: bold;
     font-size: 1.8rem;
+  }
+
+.Root__Buttons {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
   }
 
 .Page1__Title {

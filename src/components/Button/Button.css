@@ -1,11 +1,4 @@
 .Button {
-
-  &__List {
-    @mixin --layout-center-between;
-    width: 90%;
-    margin: 0 auto;
-  }
-
   &__Item a {
     display: block;
     color: #0cb39a;
