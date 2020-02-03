@@ -14,13 +14,13 @@ class Tab extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('load', () => {
-      this.width = this.tabRef.clientWidth;
-      this.setState({ styleTab: {
-        width: this.width,
-        transform: 'translateX(0px)'
-      }});
-    });
+    // window.addEventListener('load', () => {
+    this.width = this.tabRef.clientWidth;
+    this.setState({ styleTab: {
+      width: this.width,
+      transform: 'translateX(0px)'
+    }});
+    // });
   }
 
   componentDidUpdate(nextProps, nextState) {

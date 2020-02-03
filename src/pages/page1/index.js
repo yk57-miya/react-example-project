@@ -36,8 +36,8 @@ export default class Page1 extends Component {
   }
   render () {
     return (
-      <div className="Page1">        
-        <h1>{ this.str }</h1>
+      <div className="Page1">
+        <h1 className="Page1__Title">{ this.str }</h1>
         <Tab tabDate={ this.tabList1 } />
         <Tab tabDate={ this.tabList2 } />
       </div>

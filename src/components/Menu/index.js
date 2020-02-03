@@ -23,7 +23,7 @@ const MenuBar = ({ children }) => (
   </div>
 );
 
-const Menu = ({ location }) => {  
+const Menu = ({ location }) => {
   const currentkey = location.pathname.split('/')[1] || '';
   return (
     <MenuBar>
@@ -33,9 +33,9 @@ const Menu = ({ location }) => {
           <div>
             <Switch location={ location }>
               <Route path='/' exact component={ TopPage }/>
-              <Route path='/page1' exact component={ Page1 } /> 
-              <Route path='/page2' exact component={ Page2 } /> 
-              <Route path='/page3' exact component={ Page3 } /> 
+              <Route path='/page1' exact component={ Page1 } />
+              <Route path='/page2' exact component={ Page2 } />
+              <Route path='/page3' exact component={ Page3 } />
               <Route exact component={ Page404 } /> {/* 一番末尾に追記(pathの指定も対応するLinkも必要ない) */}
             </Switch>
           </div>
