@@ -21,7 +21,7 @@ export default class Page1 extends Component {
     ];
     this.tabList2 = [
       {
-        name: 'い ぬ',
+        name: 'い ぬおおおおおお',
         content: 'かわいい',
       },
       {

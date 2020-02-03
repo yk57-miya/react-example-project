@@ -8,24 +8,6 @@ class Button extends Component {
     };
   }
 
-  componentDidMount() {
-
-  }
-
-  // componentDidUpdate(nextProps, nextState) {
-  //   if (nextProps.tabDate !== this.props.tabDate || nextState.styleButton !== this.state.styleButton) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (nextProps.tabDate !== this.props.tabDate || nextState.styleButton !== this.state.styleButton) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
   handleButtonClick = e => {
     e.preventDefault();
   };
@@ -33,13 +15,7 @@ class Button extends Component {
   render() {
     return (
       <div className="Button">
-        <ul className="Button__List">{
-          this.props.myDate.map((item, i) => {
-            const url = `/${item}`;
-
-            return <li className="Button__Item" key={ i }><Link to={ url }>{ item }</Link></li>;
-          })
-        }</ul>
+        <div className="Button__Item"><Link to={ this.props.item.to }>{ this.props.item.label }</Link></div>
       </div>
     );
   }

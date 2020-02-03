@@ -1,0 +1,544 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+/* font-sizeに関する変数群 */
+
+/* 共通color */
+
+/* Text colorに関する変数群 */
+
+/* Bg colorに関する変数群 */
+
+/* border colorに関する変数群 */
+
+:root {
+  /* 上揃え & 左揃え */
+  /* 上揃え & 左右中央 */
+  /* 上揃え & 左右スペースを空けて目一杯に広げる */
+  /* 上揃え & 右揃え */
+  /* 天地中央 & 左揃え */
+  /* 天地中央 & 左右中央 */
+  /* 天地中央 & 左右スペースを空けて目一杯に広げる */
+  /* 天地中央 & 左右スペースを空けて目一杯に広げる */
+  /* 天地中央 & 右揃え */
+  /* 天地いっぱいまで広げる & 左揃え */
+  /* 天地いっぱいまで広げる & 左右中央 */
+  /* 天地いっぱいまで広げる & 左右スペースを空けて目一杯に広げる */
+  /* 天地いっぱいまで広げる & 右揃え */
+  /* 下揃え & 左揃え */
+  /* 下揃え & 左右中央 */
+  /* 下揃え & 左右スペースを空けて目一杯に広げる */
+  /* 下揃え & 右揃え */
+  /*
+  縦方向
+  天地中央 & 左揃え
+  */
+  /* 縦方向
+  天地中央 & 左右中央 */
+  /* 縦方向
+  天地中央 & 左右いっぱいまで広がる */
+}
+
+/* fade animation */
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  -webkit-transition: opacity 800ms ease-out;
+  transition: opacity 800ms ease-out;
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+/* calculator */
+
+.Menu {
+  width: 100%;
+  text-align: center;
+}
+
+.Menu ul {
+    display: -webkit-box;
+    display: flex;
+  }
+
+.Menu li {
+    background: #000;
+    width: 100%;
+  }
+
+.Menu li a {
+    display: block;
+    padding: 1rem 0;
+    color: #fff;
+    text-decoration: none;
+  }
+
+.Menu li a:hover {
+      background-color: #fff;
+      color: #000;
+      -webkit-transition: all 300ms ease-in;
+      transition: all 300ms ease-in;
+    }
+
+.Tab {
+  margin: 0 1.6rem;
+}
+
+.Tab ul {
+    width: 100%;
+    margin-bottom: -1px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+            justify-content: flex-start;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+.Tab__Title {
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #666;
+    cursor: pointer;
+  }
+
+.Tab__Title:hover {
+      color: #4fc454;
+    }
+
+.Tab__Title--active {
+      color: #0cb39a;
+      padding-bottom: 1.1rem;
+      font-weight: 400;
+    }
+
+.Tab__UnderLine {
+    display: block;
+    -webkit-transition: -webkit-transform 300ms ease-in;
+    transition: -webkit-transform 300ms ease-in;
+    transition: transform 300ms ease-in;
+    transition: transform 300ms ease-in, -webkit-transform 300ms ease-in;
+    border-bottom: 2px solid #0cb39a;
+    margin-bottom: -1px;
+  }
+
+.Tab__Content {
+    margin: 2rem;
+    font-size: 1.2rem;
+    display: none;
+  }
+
+.Tab__Content--active {
+      display: block;
+    }
+
+.Carousel {
+  position: relative;
+  width: 100%;
+}
+
+.Carousel__Inner {
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+.Carousel__List {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-transition: -webkit-transform 500ms ease;
+    transition: -webkit-transform 500ms ease;
+    transition: transform 500ms ease;
+    transition: transform 500ms ease, -webkit-transform 500ms ease;
+    height: 100%;
+  }
+
+.Carousel__Item {
+    position: relative;
+    height: 100%;
+  }
+
+.Carousel__Item span {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 1px #000;
+    }
+
+.Carousel__Item img {
+      width: 100%;
+      height: 100%;
+    }
+
+.Carousel__Arrow {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+  }
+
+.Carousel__Arrow::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #0cb39a;
+    }
+
+.Carousel__Arrow::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 12px;
+      width: 5px;
+      height: 5px;
+      border-top: 1px solid #fff;
+      border-right: 1px solid #fff;
+    }
+
+.Carousel__Arrow--prev {
+      left: 10%;
+    }
+
+.Carousel__Arrow--prev::before {
+        left: 0;
+      }
+
+.Carousel__Arrow--prev::after {
+        left: 13px;
+        -webkit-transform: rotate(-135deg);
+                transform: rotate(-135deg);
+      }
+
+.Carousel__Arrow--next {
+      right: 10%;
+    }
+
+.Carousel__Arrow--next::before {
+        right: 0;
+      }
+
+.Carousel__Arrow--next::after {
+        right: 13px;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+      }
+
+.Carousel__Pager {
+    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+            justify-content: center;
+    margin: 0.8rem 0;
+  }
+
+.Carousel__Page {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    cursor: pointer;
+  }
+
+.Carousel__Page:not(:last-child) {
+      margin-right: 2.4rem;
+    }
+
+.Carousel__Page::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+
+.Carousel__Page--active::before {
+        background-color: #0cb39a;
+      }
+
+.Calculator {
+  width: 100%;
+}
+
+.Calculator__Row {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+            justify-content: flex-start;
+  }
+
+.Calculator__Row:not(last-child) {
+    margin-bottom: 1rem;
+  }
+
+.Calculator__Result {
+    width: calc(80px * 4 + 1rem * 3);
+    max-width: 100%;
+  }
+
+.Calculator__ResultInner {
+    width: -webkit-fill-available;
+    display: inline-block;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 1px solid #f1f3f4;
+    text-align: right;
+  }
+
+.Calculator__Button {
+    width: 80px;
+    height: 40px;
+  }
+
+.Calculator__Button:not(last-child) {
+    margin-right: 1rem;
+  }
+
+.CalculatorButton {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.CalculatorButton__Item {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    background-color: #f1f3f4;
+    border: 1px solid #f1f3f4;
+    border-radius: 4px;
+  }
+
+.CalculatorButton__Item--dark {
+      background-color: #dfe1e5;
+    }
+
+.CalculatorButton__Item--main {
+      color: #fff;
+      background-color: #0cb39a;
+    }
+
+.Button__Item a {
+    display: block;
+    color: #0cb39a;
+    width: 200px;
+    height: 200px;
+    border: double 4px #0cb39a;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+    transition: transform 0.6s, -webkit-transform 0.6s;
+    line-height: 200px;
+    font-size: 1.2rem;
+  }
+
+.Button__Item a:hover {
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+
+.Root__Title {
+    margin: 3rem 0;
+    padding-left: 3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
+.Root__Buttons {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+.Page1__Title {
+    margin: 3rem 0;
+    padding-left: 3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
+.Page2__Title {
+    margin: 3rem 0;
+    padding-left: 3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
+.Page2__SubTitle {
+    padding: 2rem 0 2rem 1rem;
+    color: #fff;
+    background-color: #9ae39e;
+    font-size: 1.6rem;
+  }
+
+.Page2__Content {
+    margin: 3.6rem 0;
+  }
+
+.Page3__Title {
+    margin: 3rem 0;
+    padding-left: 3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
+/* &__SubTitle {
+    padding: 2rem 0 2rem 1rem;
+    color: #fff;
+    background-color: #9ae39e;
+    font-size: $size-font-large;
+  } */
+
+.Page3__Content {
+    margin: 3.6rem 0;
+    padding: 0 3rem;
+  }
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+.App-logo {
+    height: 80px;
+    -webkit-animation: App-logo-spin infinite 20s linear;
+            animation: App-logo-spin infinite 20s linear;
+  }
+
+.App-header {
+    height: 150px;
+    padding: 20px;
+    color: white;
+    background-color: #222;
+  }
+
+.App-title {
+    font-size: 1.5em;
+  }
+
+.App-intro {
+    font-size: large;
+  }
+
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
