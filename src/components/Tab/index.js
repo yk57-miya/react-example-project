@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 class Tab extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.currentId = 0;
     this.state = {
@@ -13,7 +13,7 @@ class Tab extends Component {
     };
   }
 
-  getUnderLineStyle (current) {
+  getUnderLineStyle(current) {
     this.currentId = current;
     const widths = [];
     let lineLength = 0;
@@ -25,17 +25,19 @@ class Tab extends Component {
     }
     return {
       width: `${widths[this.currentId]}px`,
-      transform: `translateX(${ lineLength }px)`
+      transform: `translateX(${lineLength}px)`
     };
   }
 
   componentDidMount() {
-    this.setState({ styleTab: this.getUnderLineStyle(this.currentId)});
-    console.log(this.state);
+    this.setState({ styleTab: this.getUnderLineStyle(this.currentId) });
   }
 
   componentDidUpdate(nextProps, nextState) {
-    if (this.props.tabDate !== nextProps.tabDate || this.state.styleTab !== nextState.styleTab) {
+    if (
+      this.props.tabDate !== nextProps.tabDate ||
+      this.state.styleTab !== nextState.styleTab
+    ) {
       return true;
     }
     return false;
@@ -43,7 +45,10 @@ class Tab extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     // TODO: console.log(this.state.styleTab, nextState.styleTab);
-    if (nextProps.tabDate !== this.props.tabDate || nextState.styleTab !== this.state.styleTab) {
+    if (
+      nextProps.tabDate !== this.props.tabDate ||
+      nextState.styleTab !== this.state.styleTab
+    ) {
       return true;
     }
     return false;
@@ -51,29 +56,40 @@ class Tab extends Component {
 
   handleTabClick = (e, id) => {
     e.preventDefault();
-    this.setState({ styleTab: this.getUnderLineStyle(id)});
+    this.setState({ styleTab: this.getUnderLineStyle(id) });
   };
 
   render() {
     return (
       <div className="Tab">
-        <ul>{
-          this.props.tabDate.map((item, i) => {
+        <ul>
+          {this.props.tabDate.map((item, i) => {
             const tabTitle = classNames('Tab__Title', {
-              'Tab__Title--active' : this.currentId === i
+              'Tab__Title--active': this.currentId === i
             });
-            return <li ref={ `tabItem${i}` } key={ i } className={ tabTitle } onClick={ e => this.handleTabClick(e, i) }>{ item.name }</li>;
-          })
-        }</ul>
-        <div className="Tab__UnderLine" style={ this.state.styleTab }></div>
-        {
-          this.props.tabDate.map((item, i) => {
-            const TabContent = classNames('Tab__Content', {
-              'Tab__Content--active' : this.currentId === i
-            });
-            return <div key={ i } className={ TabContent }>{ item.content }</div>;
-          })
-        }
+            return (
+              <li
+                ref={`tabItem${i}`}
+                key={i}
+                className={tabTitle}
+                onClick={e => this.handleTabClick(e, i)}
+              >
+                {item.name}
+              </li>
+            );
+          })}
+        </ul>
+        <div className="Tab__UnderLine" style={this.state.styleTab}></div>
+        {this.props.tabDate.map((item, i) => {
+          const TabContent = classNames('Tab__Content', {
+            'Tab__Content--active': this.currentId === i
+          });
+          return (
+            <div key={i} className={TabContent}>
+              {item.content}
+            </div>
+          );
+        })}
       </div>
     );
   }

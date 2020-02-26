@@ -3,7 +3,63 @@
     margin: 3rem 0;
     padding-left: 3rem;
     font-weight: bold;
+    font-size: $size-font-xxlarge;
+  }
+
+  &__SubTitle {
     font-size: $size-font-xlarge;
+    margin: 3rem 0;
+  }
+
+  &__MainVisual {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__Content {
+    min-height: 500px;
+    max-width: 100%;
+    width: 950px;
+    margin: 0 auto;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  &__List {
+    @mixin --layout-center-start;
+
+    .ListItem {
+      width: 33.3%;
+
+      &:not(:last-child) {
+        margin-right: 5%;
+      }
+    }
+  }
+
+  &__Parallax {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    &--pattern1 {
+      background-image: url(./img/cat_1.jpg);
+    }
+
+    &--pattern2 {
+      background-image: url(./img/cat_2.jpg);
+    }
+  }
+
+  &__BackgroundMask {
+    height: 100%;
+    min-height: 500px;
+    background: rgba(255,255,255,0.5);
   }
 
   &__Buttons {
