@@ -431,35 +431,73 @@ html {
     }
 
 .ListItem {
-  position: relative;
   width: 100%;
 }
 
-.ListItem__Inner p {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      padding: 7px 10px;
-      background-color: rgba(0, 0, 0, 0.7);
-      font-size: 1.2rem;
-    }
-
-.ListItem__Inner a {
-      text-decoration: none;
-      color: #fff;
-    }
+.ListItem__Inner {
+    position: relative;
+    -webkit-transition: -webkit-transform 500ms;
+    transition: -webkit-transform 500ms;
+    transition: transform 500ms;
+    transition: transform 500ms, -webkit-transform 500ms;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
 
 .ListItem__Inner img {
       width: 100%;
     }
 
-.ListItem__Cover {
+.ListItem__Front {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+
+.ListItem__Back {
     position: absolute;
     top: 0;
     left: 0;
+    background-color: #fff;
     width: 100%;
     height: 100%;
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
   }
+
+.ListItem__Back a {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+              justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: #000;
+    }
+
+.ListItem__Back p {
+      width: 100%;
+      padding: 0 2rem;
+      text-align: left;
+      font-size: 1.4rem;
+      line-height: 1.4;
+    }
+
+.ListItem__Back p:first-child {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+.ListItem--active .ListItem__Inner {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+    }
 
 .Root__Title {
     margin: 3rem 0;
@@ -470,20 +508,25 @@ html {
 
 .Root__SubTitle {
     font-size: 1.8rem;
-    margin: 3rem 0;
+    padding: 3rem 0;
+    color: #fff;
   }
 
 .Root__MainVisual img {
       width: 100%;
+      vertical-align: bottom;
     }
 
-.Root__Content {
+.Root__Block {
     min-height: 500px;
     max-width: 100%;
     width: 950px;
     margin: 0 auto;
-    background-color: #fff;
     text-align: center;
+  }
+
+.Root__Content {
+    background-color: #000;
   }
 
 .Root__List {
@@ -493,14 +536,20 @@ html {
             align-items: center;
     -webkit-box-pack: start;
             justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 7.8rem;
   }
 
 .Root__List .ListItem {
-      width: 33.3%;
+      width: 30%;
     }
 
-.Root__List .ListItem:not(:last-child) {
+.Root__List .ListItem:not(:nth-child(3n)) {
         margin-right: 5%;
+      }
+
+.Root__List .ListItem:nth-child(n+4) {
+        margin-top: 5%;
       }
 
 .Root__Parallax {

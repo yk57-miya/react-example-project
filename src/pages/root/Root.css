@@ -8,32 +8,43 @@
 
   &__SubTitle {
     font-size: $size-font-xlarge;
-    margin: 3rem 0;
+    padding: 3rem 0;
+    color: #fff;
   }
 
   &__MainVisual {
     img {
       width: 100%;
+      vertical-align: bottom;
     }
   }
 
-  &__Content {
+  &__Block {
     min-height: 500px;
     max-width: 100%;
     width: 950px;
     margin: 0 auto;
-    background-color: #fff;
     text-align: center;
+  }
+
+  &__Content {
+    background-color: #000;
   }
 
   &__List {
     @mixin --layout-center-start;
+    flex-wrap: wrap;
+    margin-bottom: 7.8rem;
 
     .ListItem {
-      width: 33.3%;
+      width: 30%;
 
-      &:not(:last-child) {
+      &:not(:nth-child(3n)) {
         margin-right: 5%;
+      }
+
+      &:nth-child(n+4) {
+        margin-top: 5%;
       }
     }
   }

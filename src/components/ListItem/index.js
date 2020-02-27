@@ -5,7 +5,7 @@ import classNames from 'classnames';
 class ListItem extends Component {
   constructor (props) {
     super(props);
-    this.onCover = classNames('ListItem__Cover');
+    this.onItem = classNames('ListItem');
     this.state = {
       isActive : false
     };
@@ -15,26 +15,12 @@ class ListItem extends Component {
   }
 
   componentDidUpdate() {
-    console.log(2,this.state);
   }
-
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   console.log(999,nextProps, prevState);
-  //   // if (prevState.isActive !== nextProps) {
-  //   // }
-  //   return;
-  // }
 
   shouldComponentUpdate(nextProps, nextState) {
     if (nextProps !== this.props || nextState !== this.state) {
-      console.log('変わった');
-      console.log(1,this.state);
-      this.onCover = classNames('ListItem__Cover', {
-        'ListItem__Cover--active' : this.state.isActive === true
-      });
       return true;
     }
-    console.log('変更なし');
     return false;
   }
 
@@ -45,24 +31,29 @@ class ListItem extends Component {
 
   handleItemEnter() {
     this.setState({ isActive: true });
-    console.log('hover',this.onCover, this.state);
   }
 
   handleItemLeave() {
     this.setState({ isActive: false });
-    console.log('外す', this.onCover, this.state);
   }
 
   render() {
+    this.onItem = classNames('ListItem', {
+      'ListItem--active' : this.state.isActive === true
+    });
     return (
-      <div className="ListItem">
+      <div className={this.onItem} onMouseEnter={ e => this.handleItemEnter(e) } onMouseLeave={ e => this.handleItemLeave(e) }>
         <div className="ListItem__Inner">
-          <Link to={location.pathname} onClick={ e => this.handleListClick(e) }>
+          <div className="ListItem__Front">
             <img src={ `./img/${this.props.item.image}` } alt=""/>
-            <p>{ this.props.item.name }</p>
-          </Link>
+          </div>
+          <div className="ListItem__Back">
+            <Link to={ location.pathname } onClick={ e => this.handleListClick(e) }>
+              <p>{ this.props.item.name }</p>
+              <p>{ this.props.item.description }</p>
+            </Link>
+          </div>
         </div>
-        <div className={this.onCover} onMouseEnter={ e => this.handleItemEnter(e) } onMouseLeave={ e => this.handleItemLeave(e) }></div>
       </div>
     );
   }

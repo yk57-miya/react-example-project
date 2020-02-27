@@ -26,19 +26,19 @@ export default class Root extends Component {
         to: 'https://sp.akb48.co.jp/',
         image: 'akb48_mobile_01.png',
         name: 'AKB48 mobileサイト',
-        description: ''
+        description: 'サイト更新改修・ガシャ施策実装をメインで運用してました。季節のイベントごとに施策があり、だいたい月1本程度あります。'
       },
       {
         to: 'http://sp.hkt48.jp/',
         image: 'hkt48_mobile_01.png',
         name: 'HKT48 mobileサイト',
-        description: ''
+        description: 'サイト更新改修・ガシャ施策実装をメインで運用してました。季節のイベントごとに施策があり、だいたい月1本程度あります。'
       },
       {
         to: 'http://sp.nogizaka46.com/',
         image: 'nogizaka46_mobile_01.png',
-        name: '乃木坂48 mobileサイト',
-        description: ''
+        name: '乃木坂46 mobileサイト',
+        description: 'サイト更新改修・ガシャ施策実装をメインで運用してました。季節のイベントごとに施策があり、だいたい月2本程度あり、大きなライブツアーに関連した施策いつも実装しているガシャに新しい機能の組み込んだりしてました。'
       },
     ];
   }
